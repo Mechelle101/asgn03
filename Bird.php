@@ -6,11 +6,19 @@ class Bird {
     public $nesting = "tree";
     public $conservation;
     public $song = "chirp";
-    public $flying = "yes";
+    public static $flying = "yes";
 
-    public static $instance_count;
+    public static $instance_count = 0;
     public static $egg_num = 0;
 
+    public static function create() {
+        $class_name = get_called_class();
+        $object = new $class_name;
+        // $object = new static; 
+        self::$instance_count++;
+        return $object;
+    }
+ 
     // public static function can_fly() {
     //  Null Coalescing Operator
     //      $flying_string = static::$flying == "Can fly" ?? "Is struck on the ground";
@@ -21,7 +29,7 @@ class Bird {
     // this is how you had it in the initial file but the instructions where different
     // so I just left it but either way wouldnt work 
     function can_fly() {
-        if($this->flying == "yes" ) {
+        if(static::$flying == "yes" ) {
             $flying_string = "can fly";
         } else {
             $flying_string = "is stuck on the ground";
@@ -31,15 +39,15 @@ class Bird {
 }
 
 class YellowBelliedFlyCatcher extends Bird {
-    var $name = "yellow-bellied flycatcher";
-    var $diet = "mostly insects.";
-    var $song = "flat chilk";
-    static public $egg_num = "3-4, sometimes 5";
+    public $name = "yellow-bellied flycatcher";
+    public $diet = "mostly insects.";
+    public $song = "flat chilk";
+    public static $egg_num = "3-4, sometimes 5";
 }
 
 class Kiwi extends Bird {
-    var $name = "kiwi";
-    var $diet = "omnivorous";
-    var $flying = "no";
+    public $name = "kiwi";
+    public $diet = "omnivorous";
+    public static $flying = "no";
 }
 ?>
