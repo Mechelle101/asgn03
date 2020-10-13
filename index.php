@@ -28,15 +28,18 @@
 
     echo "<h1>Static Examples</h1>";
     echo "<h2>Before using the create method</h2>";
+    
     echo "Bird count: " . Bird::$instance_count . "<br><br>"; 
     echo "Flycatcher count: " . YellowBelliedFlyCatcher::$instance_count . "<br><br>"; 
     echo "Kiwi count: " . Kiwi::$instance_count . "<br><br>"; 
 
     echo "<h2>After using the create method</h2>";
 
-    $b = Bird::create() . "<br><br>";
-    $f = YellowBelliedFlyCatcher::create() . "<br><br>";
-    $k = Kiwi::create() . "<br><br>";
+    $second_bird = Bird::create();
+    $second_fly_catcher = YellowBelliedFlyCatcher::create();
+    $second_kiwi = Kiwi::create();
+
+    // echo "Second Bird Count: " . $second_bird;
 
     echo "Bird count: " . Bird::$instance_count . "<br><br>"; 
     echo "Flycatcher count: " . YellowBelliedFlyCatcher::$instance_count . "<br><br>"; 

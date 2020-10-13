@@ -26,8 +26,6 @@ class Bird {
     //      $flying_string = static::$flying == "yes" ? "can fly" : "is stuck on the ground";
     // }
 
-    // this is how you had it in the initial file but the instructions where different
-    // so I just left it but either way wouldnt work 
     function can_fly() {
         if(static::$flying == "yes" ) {
             $flying_string = "can fly";
